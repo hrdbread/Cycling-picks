@@ -1,0 +1,17 @@
+services:
+  app:
+    build: .
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:3000:3000"   # bind to localhost; reverse-proxy in front
+    environment:
+      - SESSION_SECRET=${SESSION_SECRET}
+      - DATABASE_PATH=/app/data/cycling.db
+      - NODE_ENV=production
+    volumes:
+      - cycling_data:/app/data
+      - cycling_shirts:/app/public/shirts
+
+volumes:
+  cycling_data:
+  cycling_shirts:

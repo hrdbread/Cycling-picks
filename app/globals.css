@@ -1,0 +1,113 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+:root {
+  --pkm-paper: #f3f3ee;
+  --pkm-chrome: #bdbdb6;
+  --pkm-shadow: #5a5a55;
+  --pkm-stroke: #0e0e0c;
+}
+
+html, body {
+  background: var(--pkm-paper);
+  color: var(--pkm-stroke);
+  min-height: 100%;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 12px;
+  line-height: 1.6;
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: none;
+  font-smooth: never;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+}
+
+body {
+  /* Subtle 1-pixel LCD scanlines so the screen has texture. */
+  background-image:
+    repeating-linear-gradient(
+      transparent 0 3px,
+      rgba(14, 14, 12, 0.05) 3px 4px
+    );
+  background-attachment: fixed;
+}
+
+button, .pkm-frame {
+  image-rendering: pixelated;
+}
+
+@layer components {
+  /* The signature Pokemon dialog box: thick black outline, white fill. */
+  .pkm-frame {
+    background: var(--pkm-paper);
+    color: var(--pkm-stroke);
+    border: 4px solid var(--pkm-stroke);
+    box-shadow:
+      0 0 0 2px var(--pkm-paper),     /* inner highlight */
+      0 0 0 6px var(--pkm-stroke),    /* outer outline */
+      6px 6px 0 0 var(--pkm-stroke);  /* drop shadow */
+    padding: 12px 14px;
+  }
+  .pkm-frame--inverted {
+    background: var(--pkm-stroke);
+    color: var(--pkm-paper);
+  }
+  .pkm-frame--inverted {
+    box-shadow:
+      0 0 0 2px var(--pkm-stroke),
+      0 0 0 6px var(--pkm-paper),
+      6px 6px 0 0 var(--pkm-stroke);
+  }
+
+  .pkm-btn {
+    @apply font-arcade text-[10px] uppercase tracking-widest px-4 py-3
+           bg-pkm-paper text-pkm-stroke border-4 border-pkm-stroke
+           hover:bg-pkm-stroke hover:text-pkm-paper active:translate-y-px
+           transition-colors disabled:opacity-50 disabled:cursor-not-allowed
+           disabled:hover:bg-pkm-paper disabled:hover:text-pkm-stroke;
+    box-shadow: 0 4px 0 0 var(--pkm-stroke);
+  }
+  .pkm-btn:active:not(:disabled) {
+    box-shadow: 0 1px 0 0 var(--pkm-stroke);
+  }
+  .pkm-btn--ghost {
+    @apply font-arcade text-[10px] uppercase tracking-widest px-3 py-2
+           bg-transparent text-pkm-stroke border-2 border-pkm-stroke
+           hover:bg-pkm-stroke hover:text-pkm-paper transition-colors;
+  }
+
+  /* Generic clickable card. */
+  .pkm-card {
+    @apply pkm-frame block transition-transform;
+  }
+  .pkm-card:hover {
+    transform: translate(-2px, -2px);
+    box-shadow:
+      0 0 0 2px var(--pkm-paper),
+      0 0 0 6px var(--pkm-stroke),
+      8px 8px 0 0 var(--pkm-stroke);
+  }
+
+  /* Tiny pixel arrow used in dialog boxes (▼). */
+  .pkm-arrow::after {
+    content: '▼';
+    color: var(--pkm-stroke);
+    margin-left: 6px;
+    animation: blink 1s steps(2, end) infinite;
+  }
+
+  /* Hatched fill — used in place of bright accents to draw attention without
+   * breaking the monochrome palette. */
+  .pkm-hatch {
+    background-image:
+      repeating-linear-gradient(
+        45deg,
+        var(--pkm-stroke) 0 2px,
+        transparent 2px 6px
+      );
+  }
+}

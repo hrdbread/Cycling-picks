@@ -1,0 +1,38 @@
+{
+  "name": "cycling-picks",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start -p 3000",
+    "seed": "tsx scripts/seed.ts",
+    "sync:startlist": "tsx scripts/sync-startlist.ts",
+    "sync:standings": "tsx scripts/sync-standings.ts",
+    "sync:shirts": "tsx scripts/sync-shirts.ts"
+  },
+  "dependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "bcryptjs": "^2.4.3",
+    "better-sqlite3": "^11.5.0",
+    "cheerio": "^1.0.0",
+    "iron-session": "^8.0.4",
+    "jimp": "^0.22.12",
+    "next": "^15.0.3",
+    "playwright": "^1.59.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "undici": "^6.20.0"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.11",
+    "@types/node": "^22.9.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.15",
+    "tsx": "^4.19.2",
+    "typescript": "^5.6.3"
+  }
+}

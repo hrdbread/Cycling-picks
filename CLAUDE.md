@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this is
 
-A two-league fantasy game for the three Grand Tours of cycling, deployed at https://cycling.twerdochlib.com. Players pick 3 GC riders + 3 teams per tour. Same picks within a league cancel out. Most winners picked = 1 point; teams break per-tour ties; the Vuelta breaks season ties. Visual style is 4-shade GameBoy monochrome with procedural pixel-sprite avatars and PCS jerseys downscaled to 32×32 4-tone PNGs.
+A two-league fantasy game for the three Grand Tours of cycling, deployed at https://cycling.twerdochlib.com. Players pick 3 GC riders + 3 teams per tour. Same picks within a league cancel out. Scoring walks the GC podium (1st → 2nd → 3rd): the first placing still held by exactly one player after cancellation wins that tour (1 point). The Best Team pick breaks per-tour ties; the Vuelta breaks season ties. Visual style is 4-shade GameBoy monochrome with procedural pixel-sprite avatars and PCS jerseys downscaled to 32×32 4-tone PNGs.
 
 ## Common commands
 
